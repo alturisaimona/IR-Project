@@ -8,7 +8,7 @@ else {
 
 $start = $page*10-10;
 $query = "*%3A*";
-$url = "http://localhost:8983/solr/final/select?q=".$query."&wt=php";
+$url = "http://localhost:8983/solr/jcg/select?q=".$query."&wt=php";
 $file = file_get_contents($url."&start=".$start);
 eval("\$result = " . $file . ";");
 $numOfPages = ceil($result["response"]["numFound"]/10);
@@ -42,6 +42,6 @@ function display($k,$x){
 }
 
 for($i=0; $i<$numOfPages; $i++){
-	echo "<a href='index.php?page=".($i+1)."'>[".($i+1)."]</a> ";
+	echo "<a href='Attempt.php?page=".($i+1)."'>[".($i+1)."]</a> ";
 }
 ?>

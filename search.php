@@ -1,4 +1,6 @@
 <?php
+
+
 if(isset($_GET["page"])){
 	$page = (int)$_GET["page"];
 }
@@ -6,10 +8,21 @@ else {
 	$page = 1;
 }
 
+if(isset($_GET['query'])){
+      $query = $_GET['query']; 
+ }else{
+      $query = "<br>This is one helluva annoying bug";
+ }
+echo $page;
+echo $query;
+$_GET['page'] = (isset($_GET['page']) ? $_GET['page'] : "");
+$_GET['query'] = (isset($_GET['query']) ? $_GET['query'] : "");
+
+
 $query = urldecode($_GET["query"]);
 $query = str_replace(" ","%20",$query);
 
-$core_url = "http://localhost:8983/solr/final/select?q=";
+$core_url = "http://localhost:8983/solr/jcg/select?q=";
 $start=$page*10-10;
 
 $contents = file_get_contents($core_url.$query.'&wt=php&rows=10&start='.$start.'');
