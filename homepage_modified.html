@@ -1,4 +1,4 @@
-<html>
+l>
 
 <head>
  <meta charset="UTF-8" />
@@ -12,31 +12,49 @@
 <body>
 	    <div class="container">
             <h1>&#x2728;HARRY POTTER AND THE CURSED CHILD REVIEWS &#x2728;</h1>
+
             </div>
        <h1> SEARCH USING SOLR SYNTAX </h1>
 	<form action="search.php" method="get">
-		<label>Query</label>
+		<label>SOLR Query</label>
 		<input type="text" size="30" name="query" value="*:*" /><br><br>
-<h5> please enter your solr query above </h5>
+
 		<input type="submit" />
 	</form>
                 <h1> SEARCH BY WORDS </h1>
-        <form action= "search.php" method="get">
-        <label>Query</label>
-        <input type="text" size="30" name="query" value="content:" /><br><br>
-        <h5> please enter the word you want to search in "" after the content. Eg: content:"Harry" </h5>
+        <form id="myForm" action= "search.php" method="get">
+        <label>Enter your word here</label>
+        <input type="text" size="30" name="query" id= "myMessage"/><br><br>
+
 	<input type="submit" />
         
         </form>
+<script type="text/javascript">
+  window.onload = function() {
+    document.getElementById("myForm").onsubmit = function() {
+      var msgElement = document.getElementById("myMessage");
+      msgElement.value = 'content:"' + msgElement.value + '"';
+      
+      return true;
+    };
+  };
+</script>
+
                 <h1> SEARCH BY RATING </h1>
         <form action= "search.php" method="get">
-        <label>Query</label>
-        <input type="text" size="30" name="query" value="rating:r out of 5 stars" /><br><br>
-<h5> please enter the rating in place of r. Eg:rating:"4.0 out of 5 stars" </h5>
-	<input type="submit" />
+        <label for="rat">Rating</label>
+ 
+  
+<select id="rat" name="query">
+  <option value="rating:1.0 out of 5 stars">1 star</option>
+  <option value="rating:2.0 out of 5 stars">2 stars</option>
+  <option value="rating:3.0 out of 5 stars">3 stars</option>
+  <option value="rating:4.0 out of 5 stars">4 stars</option>
+  <option value="rating:5.0 out of 5 stars">5 stars</option>
+</select>
+<input type="submit" />
+
         </form>
       
 	
 </body>
-
-</html>
