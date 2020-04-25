@@ -1,9 +1,14 @@
 # IR-Project
 
-This project has 3 files. The .xml file is the xml version of the reviews that can be used to create a new core in solr and index it. Please name the new core as final in order for the other two files to work. This version of xml is modified according to the requirements of solr so any other version that might which is a direct conversion of .csv to .xml might not work. Please use this version only.
-
-The attempt .php file is used to display the reviews in a pretty format. Run the solr and execute the query in the solr. Then run the attempt.php to find the results in an organized manner. 
-
-Just realized that it doesn't display anything from the second page onwards, which might also be something to do with the code.
-
-Search engine.php is used to create the search engine. Try running it after you run the solr. The last time I checked it says got error in line 9.
+This zip file has 3 folders and is used to run the interface that would enable the user to make queries using either the solr syntax or search for specific words or filter the reviews according to their rating.
+In order to run this interface, please follow the steps mentioned below.
+Run solr on your local host and create a core jcg.
+Create a schema for the xml file all_amazon_reviews.xml.xml
+Index the file all_amazon_reviews.xml.xml inside the core jcg
+Now click on the query section.
+Run Apache server on your local host and run search.php.
+Search.php will display all the reviews for the book "Harry Potter and the cursed child" that are available on amazon.
+Now run modified_homepage.html.
+This will produce the interfae that would enable you to search.
+Here you can search according to the preference.
+Once the results are displayed you can choose to make another search by going back to the search interface.
